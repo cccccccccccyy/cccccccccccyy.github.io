@@ -159,8 +159,7 @@
       
         <h2 id="从HTML到servlet的一些常用知识点"><a href="#从HTML到servlet的一些常用知识点" class="headerlink" title="从HTML到servlet的一些常用知识点"></a>从HTML到servlet的一些常用知识点</h2><hr>
 <h2 id="HTML"><a href="#HTML" class="headerlink" title=" HTML"></a> <strong>HTML</strong></h2><ol>
-<li><p>非表单标签：</p>
-<ul>
+<li>非表单标签：<ul>
 <li>b 粗体 u 下划线 i 斜体 del 删除效果</li>
 <li>a 超链接 href target=_blank</li>
 <li>img 图片</li>
@@ -171,8 +170,9 @@
 <li>div 虚拟矩形区域 span 行内元素（不会换行）</li>
 </ul>
 </li>
-<li><p>表单元素</p>
-<ul>
+</ol>
+<ol start="2">
+<li>表单元素<ul>
 <li><from> 表单标签 action 提交表单的地址 method 表单提交的方式(get post) name (命名方式:xxxFrm)</from></li>
 <li>表单域(表单域一定要有name属性，否则该表单不会被提交)<ul>
 <li>a.文本域(text:单行文本域 ,password:密码框 ,textarea: 多行文本域)</li>
@@ -221,8 +221,7 @@
 <li>浏览器对象: <code>a.window (1) open 打开子窗口  close 关闭窗口   (2)定时操作: setTimeout cleanTimeout clearInterval</code></li>
 </ol>
 <h2 id="Dom操作"><a href="#Dom操作" class="headerlink" title=" Dom操作  "></a> <strong>Dom操作</strong>  </h2><ol>
-<li><p>如何获得节点：</p>
-<ul>
+<li>如何获得节点：<ul>
 <li>(a)直接获得<ul>
 <li><code>.document.getElementById()</code>     <code>.document.getElementByName()</code> 返回的是数组 </li>
 <li><code>.document.getElementByName()</code> 根据标签名字获取，返回的是数组 </li>
@@ -236,15 +235,13 @@
 </li>
 </ul>
 </li>
-<li><p>如何操作节点</p>
-<ul>
+<li>如何操作节点<ul>
 <li>(a)判断节点类型:<code>nodeType</code> —-1.元素节点  2.文本节点</li>
 <li>(b)节点的属性: 通过点操作符即可</li>
 <li>(c) 节点的文本内容: <code>innerHTML</code></li>
 </ul>
 </li>
-<li><p>改变DOM结构</p>
-<ul>
+<li>改变DOM结构<ul>
 <li>(a)增加节点: <code>appendChild</code> , <code>insertBefore</code></li>
 <li>(b)删除节点:<code>removeChild</code></li>
 <li>(c) 替换节点:<code>replaceChild</code></li>
@@ -263,16 +260,16 @@
 </li>
 </ol>
 <h2 id="servlet"><a href="#servlet" class="headerlink" title=" servlet"></a> <strong>servlet</strong></h2><ol>
-<li><p>浏览器发送给客户端的请求内容：</p>
-<ul>
+<li>浏览器发送给客户端的请求内容：<ul>
 <li><code>HttpServletRequest</code> 对象   <code>getParameter()</code>   <code>getParameterValues()</code> 处理复选框</li>
 <li>作为作用域:<code>setAttribute</code> <code>getAttribute</code> <code>removeAttribute</code>  <code>getRequestURL</code>    <code>getReponsetURL</code>  <code>getQueryString</code>  <code>getContextPath</code> </li>
 <li>获得客户端IP和端口: <code>getRemoteAddr.getRemotePort</code>      <code>request .setCharacerEncoding</code> 设置请求实体的编码。对<code>post</code>有效<code>get</code>无效。如果要让<code>get</code>提交的数据也有效。可以改动<code>tomcat</code>配置文件<code>server.xml</code>对<code>connection</code>元素增加一个属性: <code>userBodyEncodingForURL=&quot;true&quot;</code></li>
 <li>请求转发: <code>request.getRequestDispatcer(&quot;2.jsp&quot;).forward(request,response)</code></li>
 </ul>
 </li>
-<li><p>服务器回送给浏览器的响应内容</p>
-<ul>
+</ol>
+<ol start="2">
+<li>服务器回送给浏览器的响应内容<ul>
 <li><ol>
 <li><code>HttpServletResponse</code> 对象 <code>setCharacterEncoding setContenteType(&quot;text/html;charset=utf-8&quot;)</code></li>
 </ol>
@@ -314,24 +311,20 @@
 </li>
 </ol>
 <h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title=" Servlet生命周期"></a> <strong>Servlet生命周期</strong></h2><ol>
-<li><p>加载和实例化：</p>
-<ul>
+<li>加载和实例化：<ul>
 <li>第一个请求的时候(servlet是单例，只有一个servlet对象)</li>
 <li>如果配置了<load-on-startup>,启动时加载（0和大于0的，越小越先。如果小于0，调用时启动）</load-on-startup></li>
 </ul>
 </li>
-<li><p>初始化</p>
-<ul>
+<li>初始化<ul>
 <li>调用Init()</li>
 </ul>
 </li>
-<li><p>执行</p>
-<ul>
+<li>执行<ul>
 <li>Service—-doget—-dopost(现在一般直接service方法同时接收get,post提交方式)</li>
 </ul>
 </li>
-<li><p>销毁</p>
-<ul>
+<li>销毁<ul>
 <li>destroy()</li>
 </ul>
 </li>
